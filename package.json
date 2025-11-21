@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "floslate",
   "private": true,
   "scripts": {
     "build": "turbo run build",
