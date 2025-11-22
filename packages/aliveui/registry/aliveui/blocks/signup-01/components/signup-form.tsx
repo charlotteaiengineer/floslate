@@ -1,18 +1,18 @@
-import { Button } from "@/registry/aliveui/ui/button"
+import { Button } from "@aliveui/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/registry/aliveui/ui/card"
+} from "@aliveui/ui/card"
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/registry/aliveui/ui/field"
-import { Input } from "@/registry/aliveui/ui/input"
+} from "@aliveui/ui/field"
+import { Input } from "@aliveui/ui/input"
 
 export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
   return (

@@ -1,25 +1,32 @@
-import { cn } from "@/lib/utils"
-import { Button } from "@/registry/aliveui/ui/button"
+"use client"
+
+import { cn } from "@aliveui/ui"
+import { Button } from "@aliveui/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/registry/aliveui/ui/card"
+} from "@aliveui/ui/card"
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
   FieldSeparator,
-} from "@/registry/aliveui/ui/field"
-import { Input } from "@/registry/aliveui/ui/input"
+} from "@aliveui/ui/field"
+import { Input } from "@aliveui/ui/input"
+
+interface LoginFormProps extends Omit<React.ComponentProps<"div">, "onSubmit"> {
+  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
+}
 
 export function LoginForm({
   className,
+  onSubmit,
   ...props
-}: React.ComponentProps<"div">) {
+}: LoginFormProps) {
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -30,7 +37,7 @@ export function LoginForm({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={onSubmit}>
             <FieldGroup>
               <Field>
                 <Button variant="outline" type="button">
@@ -59,6 +66,7 @@ export function LoginForm({
                 <FieldLabel htmlFor="email">Email</FieldLabel>
                 <Input
                   id="email"
+                  name="email"
                   type="email"
                   placeholder="m@example.com"
                   required
@@ -74,12 +82,12 @@ export function LoginForm({
                     Forgot your password?
                   </a>
                 </div>
-                <Input id="password" type="password" required />
+                <Input id="password" name="password" type="password" required />
               </Field>
               <Field>
                 <Button type="submit">Login</Button>
                 <FieldDescription className="text-center">
-                  Don&apos;t have an account? <a href="#">Sign up</a>
+                  Don&apos;t have an account? <a href="/signup">Sign up</a>
                 </FieldDescription>
               </Field>
             </FieldGroup>

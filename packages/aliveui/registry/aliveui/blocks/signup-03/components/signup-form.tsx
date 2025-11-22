@@ -1,21 +1,21 @@
 "use client"
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/registry/aliveui/ui/button"
+import { cn } from "@aliveui/ui"
+import { Button } from "@aliveui/ui"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/registry/aliveui/ui/card"
+} from "@aliveui/ui/card"
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/registry/aliveui/ui/field"
-import { Input } from "@/registry/aliveui/ui/input"
+} from "@aliveui/ui/field"
+import { Input } from "@aliveui/ui/input"
 
 interface SignupFormProps extends Omit<React.ComponentProps<"div">, "onSubmit"> {
   onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
