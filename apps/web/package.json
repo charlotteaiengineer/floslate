@@ -13,6 +13,7 @@
   "dependencies": {
     "@aws-sdk/client-cognito-identity-provider": "^3.936.0",
     "@repo/ui": "workspace:*",
+    "aliveui": "workspace:^",
     "next": "^16.0.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
