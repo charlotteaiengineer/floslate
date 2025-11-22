@@ -21,8 +21,10 @@ function VerifyForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const emailParam = searchParams.get("email") || "";
+  const usernameParam = searchParams.get("username") || "";
   
   const [email, setEmail] = useState(emailParam);
+  const [username, setUsername] = useState(usernameParam);
   const [code, setCode] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -33,7 +35,7 @@ function VerifyForm() {
     setLoading(true);
 
     try {
-      await confirmSignUp(email, code);
+      await confirmSignUp(username || email, code);
       router.push("/login?verified=true");
     } catch (err) {
       console.error(err);

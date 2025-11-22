@@ -1,6 +1,6 @@
 import { GalleryVerticalEnd } from "lucide-react"
 
-import { SignupForm } from "@/registry/aliveui/blocks/signup-03/components/signup-form"
+import { SignupForm } from "@aliveui/ui"
 
 export default function SignupPage() {
   return (

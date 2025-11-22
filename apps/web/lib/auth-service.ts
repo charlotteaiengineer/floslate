@@ -16,9 +16,10 @@ import { cognitoClient, cognitoConfig } from "./cognito";
  * Sign up a new user
  */
 export async function signUp(email: string, password: string, attributes?: Record<string, string>) {
+  const username = self.crypto.randomUUID();
   const params: SignUpCommandInput = {
     ClientId: cognitoConfig.clientId,
-    Username: email,
+    Username: username,
     Password: password,
     UserAttributes: [
       {
@@ -35,6 +36,7 @@ export async function signUp(email: string, password: string, attributes?: Recor
   const response = await cognitoClient.send(command);
   
   return {
+    username,
     userSub: response.UserSub,
     userConfirmed: response.UserConfirmed,
     codeDeliveryDetails: response.CodeDeliveryDetails,

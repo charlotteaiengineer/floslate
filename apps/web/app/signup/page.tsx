@@ -28,10 +28,10 @@ export default function SignupPage() {
     }
 
     try {
-      await signUp(email, password, { name });
+      const result = await signUp(email, password, { given_name: name });
       // Redirect to confirmation page or login
       // For now, let's redirect to a verify page (we'll need to create this)
-      router.push(`/verify?email=${encodeURIComponent(email)}`);
+      router.push(`/verify?email=${encodeURIComponent(email)}&username=${encodeURIComponent(result.username)}`);
     } catch (err) {
       console.error(err);
       setError(err instanceof Error ? err.message : "Something went wrong");
