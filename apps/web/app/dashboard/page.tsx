@@ -3,7 +3,7 @@ import { getUserProfile } from "@/actions/user-actions";
 import { TodoList } from "./todo-list";
 
 export default async function DashboardPage() {
-  const todos = await getTodos();
+  const { todos } = await getTodos();
   const user = await getUserProfile();
 
   return (

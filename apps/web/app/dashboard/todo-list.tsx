@@ -1,11 +1,17 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { createTodo, toggleTodo, deleteTodo } from "@/actions/todo-actions";
 import { Button, Input, Card, CardContent } from "@aliveui/ui";
+import type { Todo } from "@/types/todo";
 
-export function TodoList({ initialTodos }: { initialTodos: any[] }) {
+interface TodoListProps {
+  initialTodos: Todo[];
+}
+
+export function TodoList({ initialTodos }: TodoListProps) {
   const formRef = useRef<HTMLFormElement>(null);
+  const [error, setError] = useState<string | null>(null);
 
   return (
     <div className="space-y-4">
@@ -13,14 +19,25 @@ export function TodoList({ initialTodos }: { initialTodos: any[] }) {
         action={async (formData) => {
           const content = formData.get("content") as string;
           if (!content) return;
-          await createTodo(content);
-          formRef.current?.reset();
+          
+          const result = await createTodo(content);
+          if (result.success) {
+            formRef.current?.reset();
+            setError(null);
+          } else {
+            setError(result.error || "Failed to create todo");
+          }
         }} 
         ref={formRef}
-        className="flex gap-2"
+        className="flex flex-col gap-2"
       >
-        <Input name="content" placeholder="Add a new todo..." required />
-        <Button type="submit">Add</Button>
+        <div className="flex gap-2">
+          <Input name="content" placeholder="Add a new todo..." required />
+          <Button type="submit">Add</Button>
+        </div>
+        {error && (
+          <p className="text-sm text-destructive">{error}</p>
+        )}
       </form>
 
       <div className="space-y-2">
@@ -31,7 +48,12 @@ export function TodoList({ initialTodos }: { initialTodos: any[] }) {
                 <input
                   type="checkbox"
                   checked={todo.completed}
-                  onChange={() => toggleTodo(todo.todoId, !todo.completed)}
+                  onChange={async () => {
+                    const result = await toggleTodo(todo.todoId, !todo.completed);
+                    if (!result.success) {
+                      setError(result.error || "Failed to update todo");
+                    }
+                  }}
                   className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
                 />
                 <span className={todo.completed ? "line-through text-muted-foreground" : ""}>
@@ -41,7 +63,12 @@ export function TodoList({ initialTodos }: { initialTodos: any[] }) {
               <Button 
                 variant="ghost" 
                 size="sm" 
-                onClick={() => deleteTodo(todo.todoId)}
+                onClick={async () => {
+                  const result = await deleteTodo(todo.todoId);
+                  if (!result.success) {
+                    setError(result.error || "Failed to delete todo");
+                  }
+                }}
                 className="text-destructive hover:text-destructive/90"
               >
                 Delete
