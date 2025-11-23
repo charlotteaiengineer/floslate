@@ -5,25 +5,25 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { PanelLeftIcon } from "lucide-react"
 
-import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@aliveui/ui"
 import { Button } from "@aliveui/ui"
-import { Input } from "@/registry/aliveui/ui/input"
-import { Separator } from "@/registry/aliveui/ui/separator"
+import { Input } from "@aliveui/ui"
+import { Separator } from "@aliveui/ui"
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "@/registry/aliveui/ui/sheet"
-import { Skeleton } from "@/registry/aliveui/ui/skeleton"
+} from "@aliveui/ui"
+import { Skeleton } from "@aliveui/ui"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/registry/aliveui/ui/tooltip"
+} from "@aliveui/ui"
+import { useIsMobile } from "@aliveui/ui"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -43,6 +43,7 @@ type SidebarContextProps = {
 }
 
 const SidebarContext = React.createContext<SidebarContextProps | null>(null)
+
 
 function useSidebar() {
   const context = React.useContext(SidebarContext)

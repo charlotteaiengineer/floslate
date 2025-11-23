@@ -1,5 +1,12 @@
 export * from "./registry/aliveui/blocks/signup-03/components/signup-form";
 export * from "./registry/aliveui/blocks/login-03/components/login-form";
+export * from "./registry/aliveui/blocks/dashboard/components/app-sidebar";
+export * from "./registry/aliveui/blocks/dashboard/components/right-sidebar";
+export * from "./registry/aliveui/blocks/dashboard/components/site-header";
+export * from "./registry/aliveui/blocks/dashboard/components/site-footer";
+export * from "./registry/aliveui/blocks/dashboard/components/nav-main";
+export * from "./registry/aliveui/blocks/dashboard/components/nav-user";
+export * from "./registry/aliveui/blocks/dashboard/components/search-form";
 
 // UI Components
 export * from "./registry/aliveui/ui/button";
@@ -10,4 +17,16 @@ export * from "./registry/aliveui/ui/field";
 export * from "./registry/aliveui/ui/form";
 export * from "./registry/aliveui/ui/alert";
 export * from "./registry/aliveui/ui/alert-dialog";
+export * from "./registry/aliveui/ui/alert-dialog";
+export * from "./registry/aliveui/ui/sidebar";
+export * from "./registry/aliveui/ui/collapsible";
+export * from "./registry/aliveui/ui/dropdown-menu";
+export * from "./registry/aliveui/ui/avatar";
+export * from "./registry/aliveui/ui/breadcrumb";
+export * from "./registry/aliveui/ui/separator";
+export * from "./registry/aliveui/ui/sheet";
+export * from "./registry/aliveui/ui/tooltip";
+export * from "./registry/aliveui/ui/skeleton";
 export * from "./lib/utils";
+export * from "./hooks/use-mobile";
+
