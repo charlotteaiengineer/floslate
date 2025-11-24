@@ -42,7 +42,7 @@ function LoginPageContent() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted/40 p-4">
+    <div className="flex  items-center justify-center h-full p-4">
       <div className="w-full max-w-md space-y-4">
         {verified && (
           <div className="rounded-md bg-green-50 p-3 text-sm text-green-700 border border-green-200">

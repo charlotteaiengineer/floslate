@@ -39,7 +39,7 @@ export function SiteHeader({ user, navMain }: { user?: { name: string; email: st
        </div>
 
        {/* Right: User menu */}
-       <div className="flex items-center justify-end flex-1">
+       <div className="flex items-center  flex-1 justify-end  ">
          <NavUser user={user} />
        </div>
       </div>

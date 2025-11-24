@@ -41,7 +41,7 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted/40 p-4">
+    <div className="flex h-full items-center justify-center p-4">
       <div className="w-full max-w-md space-y-4">
         {error && (
           <div className="rounded-md bg-destructive/15 p-3 text-sm text-destructive">

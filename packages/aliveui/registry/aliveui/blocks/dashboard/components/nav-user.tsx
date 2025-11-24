@@ -13,6 +13,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
+  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
@@ -39,22 +40,20 @@ export function NavUser({
 
   if (!user) {
     return (
-      <SidebarMenu>
-        <SidebarMenuItem>
-          <div className="flex flex-col gap-2 p-2">
-            <SidebarMenuButton asChild>
-              <a href="/my-account/">
+     
+          <div className="grid grid-cols-2 uppercase  w-full flex-col gap-2 p-2">
+            <Button  variant="ghost"  asChild>
+              <a href="/login/">
                 <span>Log in</span>
               </a>
-            </SidebarMenuButton>
-            <SidebarMenuButton asChild>
-              <a href="/my-account/?act=reg">
+            </Button>
+            <Button variant="ghost"  asChild>
+              <a href="/signup">
                 <span>Sign up</span>
               </a>
-            </SidebarMenuButton>
+            </Button>
           </div>
-        </SidebarMenuItem>
-      </SidebarMenu>
+     
     )
   }
 
