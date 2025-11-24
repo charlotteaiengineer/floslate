@@ -20,8 +20,8 @@ export function UserProfileCard({ user }: UserProfileCardProps) {
   return (
     <BentoCard className="col-span-1">
       <div className="flex flex-col items-start gap-4 py-4">
-        <div className=" shadow-inset shadow-[inset_0px_4px_18px_10px_rgba(0,_0,_0,_0.2)] border-2 rounded-full p-5">
-        <Avatar className="h-24 w-24">
+        <div className=" shadow-inset shadow-[inset_0px_4px_18px_10px_rgba(0,_0,_0,_0.2)]   border-4 rounded-full p-5">
+        <Avatar className="h-32 w-32">
           <AvatarImage src="https://media.licdn.com/dms/image/v2/D4E03AQHjmIQToFk9tg/profile-displayphoto-crop_800_800/B4EZobySK6KoAI-/0/1761402760103?e=1765411200&v=beta&t=Xn3poQbRJph6LIAAM1cfdOQnEPvPWzVR2eL6Bxf9qBY" alt={user.name} />
           <AvatarFallback>{initials}</AvatarFallback>
         </Avatar>
