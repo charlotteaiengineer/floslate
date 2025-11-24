@@ -5,6 +5,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
+  Icon,
 } from "@aliveui/ui"
 import { AppIcon } from "@aliveui/ui/app-icon"
 import { GridIcon } from "lucide-react"
@@ -32,7 +33,7 @@ export function AppLauncher({ apps = defaultApps }: AppLauncherProps) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" className="rounded-full">
-          <GridIcon className="h-5 w-5" />
+          <Icon icon="apps" weight="bold" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-80 p-6">

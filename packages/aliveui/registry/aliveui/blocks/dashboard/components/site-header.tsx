@@ -14,6 +14,7 @@ import { AppLauncher } from "./app-launcher"
 
 import { type IconName } from "@aliveui/ui/icon"
 import React from "react"
+import Link from "next/link"
 
 export function SiteHeader({ 
   user, 
@@ -36,11 +37,15 @@ export function SiteHeader({
        <div className="flex items-center gap-3">
      
            <div className="flex items-center gap-2">
+            <Link href="http://localhost:3000/">
              <FloslateLogo size="lg" textVariant="medium" />
+             </Link>
              {appName && (
-               <>
-                 <Text size="lg" className="text-muted-foreground/50">|</Text>
+              <>
+               <Text size="lg" className="text-muted-foreground/50">|</Text>
+               <div className="cursor-pointer">
                  <Text className="uppercase" variant="light" size="lg">{appName}</Text>
+               </div>
                </>
              )}
            </div>

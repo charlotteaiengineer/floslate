@@ -2,6 +2,7 @@
 
 import {
   AppSidebar,
+  EtheralShadow,
   RightSidebar,
   SidebarInset,
   SidebarProvider,
@@ -20,10 +21,11 @@ interface AppShellProps {
   sidebar?: React.ReactNode
   collapsible?: "offcanvas" | "icon" | "none"
   logo?: React.ReactNode
-  appName?: string
+  appName?: string,
+  backgroundAnimated?: boolean
 }
 
-export function AppShell({ children, user, navMain, sidebar, collapsible = "offcanvas", appName }: AppShellProps) {
+export function AppShell({ children, user, navMain, sidebar, collapsible = "offcanvas",backgroundAnimated = false, appName }: AppShellProps) {
   return (
     <SidebarProvider defaultOpen={false}>
       <div className="flex flex-col h-svh w-svw overflow-hidden">
@@ -31,9 +33,23 @@ export function AppShell({ children, user, navMain, sidebar, collapsible = "offc
         <div className="flex flex-1 overflow-hidden">
           {sidebar ? sidebar : <AppSidebar navMain={navMain} user={user} collapsible={collapsible} />}
           <SidebarInset className="flex flex-col flex-1 overflow-hidden bg-sidebar p-2">
-            <main className="flex-1 rounded-3xl border bg-background overflow-y-auto p-4">
-              {children}
-            </main>
+    {backgroundAnimated ? (
+      <EtheralShadow
+        color="rgba(128, 128, 128, 1)"
+        staticFilter={true}
+        // animation={{ scale: 1000, speed: 0 }}
+        noise={{ opacity: 0.5, scale: 0.5 }}
+        className="rounded-3xl relative overflow-hidden shadow-inset shadow-[inset_0px_4px_108px_15px_rgba(0,_0,_0,_0.3)]"
+      >
+        <main className="  flex-1 h-full w-full overflow-y-scroll !scrollbar-none  ">
+          {children}
+        </main>
+      </EtheralShadow>
+    ) : (
+      <main className="flex-1  border bg-background overflow-y-auto ">
+        {children}
+      </main>
+    )}
           </SidebarInset>
           <RightSidebar />
         </div>

@@ -37,3 +37,4 @@ export * from "./hooks/use-mobile";
 export * from "./registry/aliveui/ui/icon";
 export * from "./registry/aliveui/ui/clock";
 
+export * from "./registry/aliveui/styles/backgrounds/etherial-shadow";

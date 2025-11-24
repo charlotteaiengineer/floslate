@@ -127,6 +127,7 @@ export default function RootLayout({
           user={sidebarData.user} 
           sidebar={null}
           collapsible="offcanvas"
+          backgroundAnimated={true}
         >
           {children}
         </AppShell>
