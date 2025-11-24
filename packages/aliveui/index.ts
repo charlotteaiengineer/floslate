@@ -7,9 +7,12 @@ export * from "./registry/aliveui/blocks/dashboard/components/site-footer";
 export * from "./registry/aliveui/blocks/dashboard/components/nav-main";
 export * from "./registry/aliveui/blocks/dashboard/components/nav-user";
 export * from "./registry/aliveui/blocks/dashboard/components/search-form";
+export * from "./registry/aliveui/blocks/dashboard/components/logo";
+export * from "./registry/aliveui/blocks/app-shell/components/app-shell";
 
 // UI Components
 export * from "./registry/aliveui/ui/button";
+export * from "./registry/aliveui/ui/text";
 export * from "./registry/aliveui/ui/card";
 export * from "./registry/aliveui/ui/input";
 export * from "./registry/aliveui/ui/label";
@@ -29,4 +32,6 @@ export * from "./registry/aliveui/ui/tooltip";
 export * from "./registry/aliveui/ui/skeleton";
 export * from "./lib/utils";
 export * from "./hooks/use-mobile";
+export * from "./registry/aliveui/ui/icon";
+export * from "./registry/aliveui/ui/clock";
 

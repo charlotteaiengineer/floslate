@@ -3,7 +3,7 @@
 import { AppSidebar } from "@aliveui/ui"
 import { BookOpen, Frame, Map, SquareTerminal } from "lucide-react"
 
-const data = {
+export const sidebarData = {
   user: {
     name: "Charlotte",
     email: "charlotte@example.com",
@@ -44,5 +44,5 @@ const data = {
 }
 
 export function AppSidebarWrapper() {
-  return <AppSidebar navMain={data.navMain} />
+  return <AppSidebar navMain={sidebarData.navMain} />
 }

@@ -28,6 +28,8 @@ interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
 }
 
 export function AppSidebar({ navMain, ...props }: AppSidebarProps) {
+  if (!navMain) return;
+
   return (
     <Sidebar
       className="max-h-[calc(100vh-100px)] my-auto"

@@ -8,6 +8,8 @@ const user = {
   avatar: "/avatars/shadcn.jpg",
 }
 
+import { sidebarData } from "./app-sidebar-wrapper"
+
 export function SiteHeaderWrapper() {
-  return <SiteHeader user={user} />
+  return <SiteHeader user={user} navMain={sidebarData.navMain} />
 }
