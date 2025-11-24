@@ -45,6 +45,12 @@ const apps = [
     color: "bg-pink-400",
     url: "http://localhost:3002"
   },
+  {
+    name: "Journal",
+    icon: "journal",
+    color: "bg-pink-400",
+    url: "http://localhost:3002"
+  },
   // Future apps can be added here
 ]
 

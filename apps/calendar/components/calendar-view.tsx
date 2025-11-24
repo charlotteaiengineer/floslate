@@ -4,6 +4,7 @@ import { Calendar, dateFnsLocalizer, Views, type View, type SlotInfo } from 'rea
 import { format, parse, startOfWeek, getDay, addMinutes, differenceInMinutes } from 'date-fns'
 import { enUS } from 'date-fns/locale'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
+import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { useState, useCallback } from 'react'
 import { DndContext, DragEndEvent, DragStartEvent, useSensor, useSensors, MouseSensor, TouchSensor } from '@dnd-kit/core'
 import { CalendarToolbar } from './calendar-toolbar'
@@ -26,7 +27,19 @@ const localizer = dateFnsLocalizer({
 })
 
 export default function CalendarView() {
-  const [view, setView] = useState<View>(Views.MONTH)
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const viewParam = searchParams.get('view')
+  const view = (viewParam === 'month' || viewParam === 'week' || viewParam === 'day' ? viewParam : Views.MONTH) as View
+
+  const onView = useCallback((newView: View) => {
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('view', newView)
+    router.push(`${pathname}?${params.toString()}`)
+  }, [searchParams, pathname, router])
+
   const [date, setDate] = useState(new Date())
   const [events, setEvents] = useState<CalendarEvent[]>(EVENTS)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -126,7 +139,7 @@ export default function CalendarView() {
           endAccessor="end"
           style={{ height: '100%' }}
           view={view}
-          onView={setView}
+          onView={onView}
           date={date}
           onNavigate={setDate}
           views={['month', 'week', 'day']}

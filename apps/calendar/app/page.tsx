@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import CalendarView from "@/components/calendar-view";
 
 export default function Page() {
@@ -7,7 +8,9 @@ export default function Page() {
         <h1 className="text-lg font-semibold">Calendar</h1>
       </header>
       <main className="flex-1 overflow-hidden">
-        <CalendarView />
+        <Suspense fallback={<div>Loading calendar...</div>}>
+          <CalendarView />
+        </Suspense>
       </main>
     </div>
   );

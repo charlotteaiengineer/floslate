@@ -31,15 +31,15 @@ export const sidebarData: {
       items: [
         {
           title: "Month",
-          url: "/month",
+          url: "/?view=month",
         },
         {
           title: "Week",
-          url: "/week",
+          url: "/?view=week",
         },
         {
           title: "Day",
-          url: "/day",
+          url: "/?view=day",
         },
       ],
     },
