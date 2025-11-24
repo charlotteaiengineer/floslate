@@ -1,8 +1,9 @@
 "use client"
 
-import { Command, type LucideIcon } from "lucide-react"
+import { Command } from "lucide-react"
 import { NavMain } from "./nav-main"
 import { NavUser } from "./nav-user"
+import { type IconName } from "@aliveui/ui/icon"
 
 import {
   Sidebar,
@@ -15,20 +16,24 @@ import {
 } from "@aliveui/ui"
 
 interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
-  navMain: {
+  navMain?: {
     title: string
     url: string
-    icon: LucideIcon
+    icon: IconName
     isActive?: boolean
     items?: {
       title: string
       url: string
     }[]
   }[]
+  user?: {
+    name: string
+    email: string
+    avatar: string
+  }
 }
 
-export function AppSidebar({ navMain, ...props }: AppSidebarProps) {
-  if (!navMain) return;
+export function AppSidebar({ navMain, user, ...props }: AppSidebarProps) {
 
   return (
     <Sidebar
@@ -36,24 +41,10 @@ export function AppSidebar({ navMain, ...props }: AppSidebarProps) {
       {...props}
     >
       <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
-              <a href="#">
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <Command className="size-4" />
-                </div>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">Acme Inc</span>
-                  <span className="truncate text-xs">Enterprise</span>
-                </div>
-              </a>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+        {user && <NavUser user={user} />}
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={navMain} />
+        <NavMain items={navMain || []} />
       </SidebarContent>
       <SidebarFooter>
      

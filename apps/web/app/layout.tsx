@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { AppShell } from "@aliveui/ui";
+import { AppIcon } from "@aliveui/ui/app-icon";
 import { sidebarData } from "@/components/app-sidebar-wrapper";
 
 const geistSans = localFont({
@@ -119,10 +120,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const AppStoreSidebar = (
+    <div className="flex flex-col items-center gap-4 py-6 w-[70px] border-r h-full bg-sidebar">
+       <a href="http://localhost:3001" title="Todo App">
+         <AppIcon icon="todo" label="Todo" color="bg-blue-500" />
+       </a>
+       {/* Future apps can be added here */}
+    </div>
+  );
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${rivieraUltralight.variable} ${rivieraLight.variable} ${rivieraRegular.variable} ${rivieraMedium.variable} ${rivieraBold.variable} ${rivieraBlack.variable}`}>
-        <AppShell user={sidebarData.user} navMain={sidebarData.navMain}>
+        <AppShell 
+          user={sidebarData.user} 
+          sidebar={AppStoreSidebar}
+          collapsible="icon"
+        >
           {children}
         </AppShell>
       </body>

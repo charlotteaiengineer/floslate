@@ -38,6 +38,8 @@ export function NavUser({
 }) {
   const { isMobile } = useSidebar()
 
+  console.log('user',user)
+
   if (!user) {
     return (
      

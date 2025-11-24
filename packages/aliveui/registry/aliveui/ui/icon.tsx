@@ -1,13 +1,20 @@
 "use client"
 
 import * as React from "react"
-import { CheckSquare, Power, Phone, type Icon as PhosphorIcon, type IconProps as PhosphorIconProps } from "@phosphor-icons/react"
+import { CheckSquare, Power, Phone, Tray, CalendarBlank, MagnifyingGlass, Funnel, Tag, User, Plus, type Icon as PhosphorIcon, type IconProps as PhosphorIconProps } from "@phosphor-icons/react"
 import { cn } from "@aliveui/ui"
 
 const icons = {
   power: Power,
   todo: CheckSquare,
-  phone: Phone
+  phone: Phone,
+  inbox: Tray,
+  calendar: CalendarBlank,
+  search: MagnifyingGlass,
+  filter: Funnel,
+  tag: Tag,
+  user: User,
+  plus: Plus
 }
 
 export type IconName = keyof typeof icons

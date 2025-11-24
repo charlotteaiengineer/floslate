@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { AppShell } from "@aliveui/ui";
+import { AppShell, Text } from "@aliveui/ui";
 import { sidebarData } from "@/components/app-sidebar-wrapper";
 
 const geistSans = localFont({
@@ -123,9 +123,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${rivieraUltralight.variable} ${rivieraLight.variable} ${rivieraRegular.variable} ${rivieraMedium.variable} ${rivieraBold.variable} ${rivieraBlack.variable}`}>
-        {/* <AppShell user={sidebarData.user} navMain={sidebarData.navMain}> */}
+        <AppShell 
+          user={sidebarData.user} 
+          navMain={sidebarData.navMain}
+          logo={<Text variant="medium" className="text-xl">Todo</Text>}
+        >
           {children}
-        {/* </AppShell> */}
+        </AppShell>
       </body>
     </html>
   );

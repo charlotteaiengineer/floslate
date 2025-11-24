@@ -1,6 +1,8 @@
 "use client"
 
-import { ChevronRight, type LucideIcon } from "lucide-react"
+import { ChevronRight } from "lucide-react"
+import { Icon, type IconName } from "@aliveui/ui/icon"
+import Link from "next/link"
 
 import {
   Collapsible,
@@ -23,7 +25,7 @@ export function NavMain({
   items: {
     title: string
     url: string
-    icon: LucideIcon
+    icon: IconName
     isActive?: boolean
     items?: {
       title: string
@@ -39,10 +41,10 @@ export function NavMain({
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
             <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip={item.title}>
-                <a href={item.url}>
-                  <item.icon />
+                <Link href={item.url}>
+                  <Icon icon={item.icon} />
                   <span>{item.title}</span>
-                </a>
+                </Link>
               </SidebarMenuButton>
               {item.items?.length ? (
                 <>
@@ -56,10 +58,10 @@ export function NavMain({
                     <SidebarMenuSub>
                       {item.items?.map((subItem) => (
                         <SidebarMenuSubItem key={subItem.title}>
-                          <SidebarMenuSubButton asChild>
-                            <a href={subItem.url}>
+                        <SidebarMenuSubButton asChild>
+                            <Link href={subItem.url}>
                               <span>{subItem.title}</span>
-                            </a>
+                            </Link>
                           </SidebarMenuSubButton>
                         </SidebarMenuSubItem>
                       ))}

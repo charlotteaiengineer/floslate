@@ -1,9 +1,24 @@
-"use client"
-
 import { AppSidebar } from "@aliveui/ui"
-import { BookOpen, Frame, Map, SquareTerminal } from "lucide-react"
 
-export const sidebarData = {
+import { type IconName } from "@aliveui/ui/icon"
+
+export const sidebarData: {
+  user: {
+    name: string
+    email: string
+    avatar: string
+  }
+  navMain: {
+    title: string
+    url: string
+    icon: IconName
+    isActive?: boolean
+    items?: {
+      title: string
+      url: string
+    }[]
+  }[]
+} = {
   user: {
     name: "Charlotte",
     email: "charlotte@example.com",
@@ -11,33 +26,22 @@ export const sidebarData = {
   },
   navMain: [
     {
-      title: "Todos",
-      url: "/dashboard",
-      icon: SquareTerminal,
+      title: "Today",
+      url: "/today",
+      icon: "calendar",
       isActive: true,
-      items: [
-        {
-          title: "My Todos",
-          url: "/dashboard",
-        },
-      ],
-    },
-    {
-      title: "Documents",
-      url: "/dashboard/documents",
-      icon: BookOpen,
       items: [],
     },
     {
-      title: "Projects",
-      url: "/dashboard/projects",
-      icon: Frame,
+      title: "Inbox",
+      url: "/inbox",
+      icon: "inbox",
       items: [],
     },
     {
-      title: "Calendar",
-      url: "/dashboard/calendar",
-      icon: Map,
+      title: "Upcoming",
+      url: "/upcoming",
+      icon: "calendar",
       items: [],
     },
   ],

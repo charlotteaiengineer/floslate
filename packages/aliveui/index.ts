@@ -30,6 +30,7 @@ export * from "./registry/aliveui/ui/separator";
 export * from "./registry/aliveui/ui/sheet";
 export * from "./registry/aliveui/ui/tooltip";
 export * from "./registry/aliveui/ui/skeleton";
+export * from "./registry/aliveui/ui/checkbox";
 export * from "./lib/utils";
 export * from "./hooks/use-mobile";
 export * from "./registry/aliveui/ui/icon";

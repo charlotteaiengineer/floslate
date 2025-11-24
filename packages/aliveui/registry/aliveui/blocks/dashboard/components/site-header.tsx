@@ -11,7 +11,9 @@ import {
   FloslateLogo,
 } from "@aliveui/ui"
 
-export function SiteHeader({ user, navMain }: { user?: { name: string; email: string; avatar: string }, navMain: { title: string; url: string; icon: LucideIcon; isActive?: boolean; items?: { title: string; url: string }[] }[] }) {
+import { type IconName } from "@aliveui/ui/icon"
+
+export function SiteHeader({ user, navMain, logo }: { user?: { name: string; email: string; avatar: string }, navMain?: { title: string; url: string; icon: IconName; isActive?: boolean; items?: { title: string; url: string }[] }[], logo?: React.ReactNode }) {
   const { toggleSidebar } = useSidebar()
 
   return (
@@ -30,12 +32,12 @@ export function SiteHeader({ user, navMain }: { user?: { name: string; email: st
              <SidebarIcon />
            </Button>
          )}
-         <SearchForm className="w-full sm:w-auto max-w-md" />
+         {/* <SearchForm className="w-full sm:w-auto max-w-md" /> */}
        </div>
 
        {/* Center: FLOSLATE Logo */}
        <div className="flex items-center justify-center flex-1">
-         <FloslateLogo size="lg" textVariant="medium" />
+         {logo ? logo : <FloslateLogo size="lg" textVariant="medium" />}
        </div>
 
        {/* Right: User menu */}
