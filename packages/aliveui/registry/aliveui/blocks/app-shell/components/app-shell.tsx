@@ -20,13 +20,14 @@ interface AppShellProps {
   sidebar?: React.ReactNode
   collapsible?: "offcanvas" | "icon" | "none"
   logo?: React.ReactNode
+  appName?: string
 }
 
-export function AppShell({ children, user, navMain, sidebar, collapsible = "offcanvas", logo }: AppShellProps) {
+export function AppShell({ children, user, navMain, sidebar, collapsible = "offcanvas", appName }: AppShellProps) {
   return (
     <SidebarProvider defaultOpen={collapsible !== "icon"}>
       <div className="flex flex-col h-svh w-svw overflow-hidden">
-        <SiteHeader user={user} navMain={navMain} logo={logo} />
+        <SiteHeader user={user} navMain={navMain} appName={appName} />
         <div className="flex flex-1 overflow-hidden">
           {sidebar ? sidebar : <AppSidebar navMain={navMain} user={user} collapsible={collapsible} />}
           <SidebarInset className="flex flex-col flex-1 overflow-hidden bg-sidebar p-2">

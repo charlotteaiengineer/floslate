@@ -1,47 +1,69 @@
 "use client"
 
-import { SidebarIcon, type LucideIcon } from "lucide-react"
+import { SidebarIcon } from "lucide-react"
 
 import {
   Button,
-  Icon,
   NavUser,
   SearchForm,
   useSidebar,
   FloslateLogo,
+  Text,
 } from "@aliveui/ui"
 
 import { type IconName } from "@aliveui/ui/icon"
 
-export function SiteHeader({ user, navMain, logo }: { user?: { name: string; email: string; avatar: string }, navMain?: { title: string; url: string; icon: IconName; isActive?: boolean; items?: { title: string; url: string }[] }[], logo?: React.ReactNode }) {
+export function SiteHeader({ 
+  user, 
+  navMain, 
+  appName,
+  showSearch = false 
+}: { 
+  user?: { name: string; email: string; avatar: string }, 
+  navMain?: { title: string; url: string; icon: IconName; isActive?: boolean; items?: { title: string; url: string }[] }[], 
+  appName?: string,
+  showSearch?: boolean
+}) {
   const { toggleSidebar } = useSidebar()
 
   return (
     <header className="bg-sidebar sticky top-0 z-50 flex w-full items-center border-b">
-      <div className="flex h-(--header-height) w-full items-center gap-2 px-4 justify-between">
+      <div className="flex h-(--header-height) w-full items-center gap-3 px-4">
        
-       {/* Left: Sidebar toggle and Search */}
-       <div className="flex items-center gap-2 flex-1">
+       {/* Left: Logo and App Name */}
+       <div className="flex items-center gap-3">
+     
+           <div className="flex items-center gap-2">
+             <FloslateLogo size="lg" textVariant="medium" />
+             {appName && (
+               <>
+                 <Text size="lg" className="text-muted-foreground/50">|</Text>
+                 <Text className="uppercase" variant="light" size="lg">{appName}</Text>
+               </>
+             )}
+           </div>
+         
+       </div>
+
+       {/* Center: Search (if enabled and has space) */}
+       {showSearch && (
+         <div className="hidden md:flex flex-1 max-w-md mx-auto">
+           <SearchForm className="w-full" />
+         </div>
+       )}
+
+       {/* Right: Sidebar toggle (mobile) and User menu */}
+       <div className="flex items-center gap-2 ml-auto">
          {navMain && (
            <Button
-             className="h-8 w-8"
+             className="md:hidden"
              variant="ghost"
              size="icon"
              onClick={toggleSidebar}
            >
-             <SidebarIcon />
+             <SidebarIcon className="h-5 w-5" />
            </Button>
          )}
-         {/* <SearchForm className="w-full sm:w-auto max-w-md" /> */}
-       </div>
-
-       {/* Center: FLOSLATE Logo */}
-       <div className="flex items-center justify-center flex-1">
-         {logo ? logo : <FloslateLogo size="lg" textVariant="medium" />}
-       </div>
-
-       {/* Right: User menu */}
-       <div className="flex items-center  flex-1 justify-end  ">
          <NavUser user={user} />
        </div>
       </div>

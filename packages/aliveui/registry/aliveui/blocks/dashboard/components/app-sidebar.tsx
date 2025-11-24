@@ -41,7 +41,7 @@ export function AppSidebar({ navMain, user, ...props }: AppSidebarProps) {
       {...props}
     >
       <SidebarHeader>
-        {user && <NavUser user={user} />}
+   
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={navMain || []} />

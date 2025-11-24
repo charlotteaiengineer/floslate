@@ -135,7 +135,7 @@ export default function RootLayout({
         <AppShell 
           user={sidebarData.user} 
           sidebar={AppStoreSidebar}
-          collapsible="icon"
+          collapsible="offcanvas"
         >
           {children}
         </AppShell>

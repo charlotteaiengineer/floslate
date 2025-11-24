@@ -11,5 +11,5 @@ const user = {
 import { sidebarData } from "./app-sidebar-wrapper"
 
 export function SiteHeaderWrapper() {
-  return <SiteHeader user={user} navMain={sidebarData.navMain} />
+  return <SiteHeader user={user} navMain={sidebarData.navMain} appName="Todo" />
 }

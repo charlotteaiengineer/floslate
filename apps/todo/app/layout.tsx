@@ -126,7 +126,7 @@ export default function RootLayout({
         <AppShell 
           user={sidebarData.user} 
           navMain={sidebarData.navMain}
-          logo={<Text variant="medium" className="text-xl">Todo</Text>}
+          appName="Todo"
         >
           {children}
         </AppShell>
