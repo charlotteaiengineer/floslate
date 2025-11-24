@@ -8,6 +8,7 @@ export * from "./registry/aliveui/blocks/dashboard/components/nav-main";
 export * from "./registry/aliveui/blocks/dashboard/components/nav-user";
 export * from "./registry/aliveui/blocks/dashboard/components/search-form";
 export * from "./registry/aliveui/blocks/dashboard/components/logo";
+export * from "./registry/aliveui/blocks/dashboard/components/app-launcher";
 export * from "./registry/aliveui/blocks/app-shell/components/app-shell";
 
 // UI Components

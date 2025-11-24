@@ -1,24 +1,28 @@
-import { AnimatedClock, Button, Icon, Logo, Text, FloslateLogo } from "@aliveui/ui";
+import { UserProfileCard } from "@/components/preview-cards/user-profile-card"
+import { AppsGridCard } from "@/components/preview-cards/apps-grid-card"
+import { TodoPreviewCard } from "@/components/preview-cards/todo-preview-card"
+
+const user = {
+  name: "Charlotte Bondarev",
+  email: "charlotte@example.com",
+  avatar: "/avatars/shadcn.jpg",
+}
 
 export default function Home() {
   return (
-    <div className="flex h-full  flex-col items-center justify-center gap-12 p-24">
-        {/* <div className="flex flex-col items-center gap-4">
-          <Text variant="light" size="6xl" className="uppercase">
-            It's up to you
-          </Text>
-          <Text variant="light" size="3xl" className="uppercase">
-            Your very own Floslate
-          </Text>
-          <AnimatedClock className="h-52 w-52" />
-          <Button className="rounded-full mt-4" size="icon-lg" variant="outline">
-            <Icon icon="phone" />
-          </Button>
-        </div> */}
-      
-   
-      
-  
+    <div className="h-full w-full p-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-max">
+          {/* User Profile Card */}
+          <UserProfileCard user={user} />
+          
+          {/* Apps Grid Card */}
+          <AppsGridCard />
+          
+          {/* Todo Preview Card */}
+          <TodoPreviewCard />
+        </div>
+      </div>
     </div>
   );
 }

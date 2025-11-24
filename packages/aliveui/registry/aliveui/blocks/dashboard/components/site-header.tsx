@@ -10,19 +10,21 @@ import {
   FloslateLogo,
   Text,
 } from "@aliveui/ui"
+import { AppLauncher } from "./app-launcher"
 
 import { type IconName } from "@aliveui/ui/icon"
+import React from "react"
 
 export function SiteHeader({ 
   user, 
   navMain, 
   appName,
-  showSearch = false 
+  showSearch = false,
 }: { 
   user?: { name: string; email: string; avatar: string }, 
   navMain?: { title: string; url: string; icon: IconName; isActive?: boolean; items?: { title: string; url: string }[] }[], 
   appName?: string,
-  showSearch?: boolean
+  showSearch?: boolean,
 }) {
   const { toggleSidebar } = useSidebar()
 
@@ -42,7 +44,18 @@ export function SiteHeader({
                </>
              )}
            </div>
-         
+          
+           {navMain && navMain.length > 0 && (
+           <Button
+            //  className="md:hidden"
+             variant="ghost"
+             size="icon"
+                       onClick={toggleSidebar}
+
+           >
+             <SidebarIcon className="h-5 w-5" />
+           </Button>
+         )}
        </div>
 
        {/* Center: Search (if enabled and has space) */}
@@ -54,16 +67,8 @@ export function SiteHeader({
 
        {/* Right: Sidebar toggle (mobile) and User menu */}
        <div className="flex items-center gap-2 ml-auto">
-         {navMain && (
-           <Button
-             className="md:hidden"
-             variant="ghost"
-             size="icon"
-             onClick={toggleSidebar}
-           >
-             <SidebarIcon className="h-5 w-5" />
-           </Button>
-         )}
+       
+         <AppLauncher />
          <NavUser user={user} />
        </div>
       </div>

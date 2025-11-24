@@ -20,7 +20,7 @@ export const sidebarData: {
   }[]
 } = {
   user: {
-    name: "Charlotte",
+    name: "Charlotte Bondarev",
     email: "charlotte@example.com",
     avatar: "/avatars/shadcn.jpg",
   },

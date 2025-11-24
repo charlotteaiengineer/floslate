@@ -3,7 +3,7 @@
 import { SiteHeader } from "@aliveui/ui"
 
 const user = {
-  name: "Charlotte",
+  name: "Charlotte Bondarev",
   email: "charlotte@example.com",
   avatar: "/avatars/shadcn.jpg",
 }
