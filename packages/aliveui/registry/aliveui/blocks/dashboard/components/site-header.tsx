@@ -37,6 +37,7 @@ export function SiteHeader({
        <div className="flex items-center gap-3">
      
            <div className="flex items-center gap-2">
+            {/* @ts-ignore */}
             <Link href="http://localhost:3000/">
              <FloslateLogo size="lg" textVariant="medium" />
              </Link>
@@ -58,6 +59,7 @@ export function SiteHeader({
                        onClick={toggleSidebar}
 
            >
+             {/* @ts-ignore */}
              <SidebarIcon className="h-5 w-5" />
            </Button>
          )}

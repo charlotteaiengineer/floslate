@@ -15,7 +15,7 @@ export function SiteFooter() {
   const segments = pathname.split("/").filter(Boolean)
 
   return (
-    <footer className="bg-sidebar sticky bottom-0 z-50 flex w-full items-center border-t h-(--header-height)">
+    <footer className="bg-sidebar sticky bottom-0 z-50 flex w-full items-center border-t h-1">
       <div className="flex w-full items-center gap-2 px-4">
         <Breadcrumb>
           <BreadcrumbList>

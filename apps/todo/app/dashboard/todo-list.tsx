@@ -54,7 +54,7 @@ export function TodoList({ initialTodos }: TodoListProps) {
                       setError(result.error || "Failed to update todo");
                     }
                   }}
-                  className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                  className="h-4 w-4 rounded border-gray-400 text-primary focus:ring-primary"
                 />
                 <span className={todo.completed ? "line-through text-muted-foreground" : ""}>
                   {todo.content}

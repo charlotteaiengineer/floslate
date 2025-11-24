@@ -1,5 +1,3 @@
-import { AppSidebar } from "@aliveui/ui"
-
 import { type IconName } from "@aliveui/ui/icon"
 
 export const sidebarData: {
@@ -26,27 +24,30 @@ export const sidebarData: {
   },
   navMain: [
     {
-      title: "Today",
-      url: "/today",
+      title: "Calendar",
+      url: "/",
       icon: "calendar",
       isActive: true,
-      items: [],
+      items: [
+        {
+          title: "Month",
+          url: "/month",
+        },
+        {
+          title: "Week",
+          url: "/week",
+        },
+        {
+          title: "Day",
+          url: "/day",
+        },
+      ],
     },
     {
-      title: "Inbox",
-      url: "/inbox",
-      icon: "inbox",
-      items: [],
-    },
-    {
-      title: "Upcoming",
-      url: "/upcoming",
-      icon: "calendar",
+      title: "Settings",
+      url: "/settings",
+      icon: "user",
       items: [],
     },
   ],
-}
-
-export function AppSidebarWrapper() {
-  return <AppSidebar navMain={sidebarData.navMain} />
 }

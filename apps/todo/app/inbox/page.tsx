@@ -62,7 +62,7 @@ export default function InboxPage() {
           ) : (
             <Button 
               variant="ghost" 
-              className="justify-start gap-2 text-red-500 hover:text-red-600 hover:bg-transparent"
+              className="justify-start gap-2 text-red-400 hover:text-red-600 hover:bg-transparent"
               onClick={() => setShowForm(true)}
             >
               <Icon icon="plus" className="w-4 h-4" />

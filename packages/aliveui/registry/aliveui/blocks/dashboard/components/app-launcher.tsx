@@ -23,8 +23,14 @@ const defaultApps = [
   {
     name: "Todo",
     icon: "todo",
-    color: "bg-gray-500",
+    color: "bg-blue-400",
     url: "http://localhost:3001"
+  },
+  {
+    name: "Calendar",
+    icon: "calendar",
+    color: "bg-red-400",
+    url: "http://localhost:3002"
   }
 ]
 
@@ -40,12 +46,12 @@ export function AppLauncher({ apps = defaultApps }: AppLauncherProps) {
         <div className="mb-4">
           <h3 className="font-semibold text-lg">Apps</h3>
         </div>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-3 gap-4 flex flex-wrap px-4">
           {apps.map((app) => (
             <a
               key={app.name}
               href={app.url}
-              className="flex flex-col items-center gap-2 group"
+              className="col-span-1"
             >
               <div className="transition-transform group-hover:scale-110">
                 <AppIcon 

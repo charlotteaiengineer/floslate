@@ -93,7 +93,7 @@ export function AddTaskForm({ onCancel, onSuccess }: AddTaskFormProps) {
             type="submit" 
             size="sm"
             disabled={!title.trim() || isSubmitting}
-            className="bg-red-500 hover:bg-red-600 text-white"
+            className="bg-red-400 hover:bg-red-600 text-white"
           >
             Add task
           </Button>

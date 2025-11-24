@@ -105,7 +105,7 @@ export function AnimatedClock({ className, staticTime, ...props }: AnimatedClock
 
       {/* Second Hand */}
       {/* <div
-        className="absolute z-10 h-[45%] w-0.5 origin-bottom rounded-full bg-orange-500"
+        className="absolute z-10 h-[45%] w-0.5 origin-bottom rounded-full bg-orange-400"
         style={{
           bottom: "50%",
           transform: `rotate(${secondDegrees}deg)`,
