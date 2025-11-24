@@ -5,6 +5,8 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { PanelLeftIcon } from "lucide-react"
 
+const PanelLeftIconAny = PanelLeftIcon as any
+
 import { cn } from "@aliveui/ui"
 import { Button } from "@aliveui/ui"
 import { Input } from "@aliveui/ui"
@@ -274,7 +276,7 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <PanelLeftIcon />
+      <PanelLeftIconAny />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )

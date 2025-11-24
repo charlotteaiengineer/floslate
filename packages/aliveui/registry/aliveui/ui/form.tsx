@@ -13,6 +13,8 @@ import {
   type FieldValues,
 } from "react-hook-form"
 
+const ControllerAny = Controller as any
+
 import { cn } from "@aliveui/ui"
 import { Label } from "@aliveui/ui/label"
 
@@ -37,7 +39,7 @@ const FormField = <
 }: ControllerProps<TFieldValues, TName>) => {
   return (
     <FormFieldContext.Provider value={{ name: props.name }}>
-      <Controller {...props} />
+      <ControllerAny {...props} />
     </FormFieldContext.Provider>
   )
 }

@@ -1,0 +1,132 @@
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import "./globals.css";
+import { AppShell } from "@aliveui/ui";
+import { sidebarData } from "@/components/app-sidebar-wrapper";
+
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+});
+
+const rivieraUltralight = localFont({
+  src: [
+    {
+      path: "../../../packages/aliveui/registry/aliveui/fonts/Riviera-trial/RivieraNightsTrial-Ultralight.otf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../../../packages/aliveui/registry/aliveui/fonts/Riviera-trial/RivieraNightsTrial-UltralightItalic.otf",
+      weight: "200",
+      style: "italic",
+    },
+  ],
+  variable: "--font-riviera-ultralight",
+});
+
+const rivieraLight = localFont({
+  src: [
+    {
+      path: "../../../packages/aliveui/registry/aliveui/fonts/Riviera-trial/RivieraNightsTrial-Light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../../packages/aliveui/registry/aliveui/fonts/Riviera-trial/RivieraNightsTrial-LightItalic.otf",
+      weight: "300",
+      style: "italic",
+    },
+  ],
+  variable: "--font-riviera-light",
+});
+
+const rivieraRegular = localFont({
+  src: [
+    {
+      path: "../../../packages/aliveui/registry/aliveui/fonts/Riviera-trial/RivieraNightsTrial-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../../packages/aliveui/registry/aliveui/fonts/Riviera-trial/RivieraNightsTrial-RegularItalic.otf",
+      weight: "400",
+      style: "italic",
+    },
+  ],
+  variable: "--font-riviera-regular",
+});
+
+const rivieraMedium = localFont({
+  src: [
+    {
+      path: "../../../packages/aliveui/registry/aliveui/fonts/Riviera-trial/RivieraNightsTrial-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../../packages/aliveui/registry/aliveui/fonts/Riviera-trial/RivieraNightsTrial-MediumItalic.otf",
+      weight: "500",
+      style: "italic",
+    },
+  ],
+  variable: "--font-riviera-medium",
+});
+
+const rivieraBold = localFont({
+  src: [
+    {
+      path: "../../../packages/aliveui/registry/aliveui/fonts/Riviera-trial/RivieraNightsTrial-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../../packages/aliveui/registry/aliveui/fonts/Riviera-trial/RivieraNightsTrial-BoldItalic.otf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  variable: "--font-riviera-bold",
+});
+
+const rivieraBlack = localFont({
+  src: [
+    {
+      path: "../../../packages/aliveui/registry/aliveui/fonts/Riviera-trial/RivieraNightsTrial-Black.otf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "../../../packages/aliveui/registry/aliveui/fonts/Riviera-trial/RivieraNightsTrial-BlackItalic.otf",
+      weight: "900",
+      style: "italic",
+    },
+  ],
+  variable: "--font-riviera-black",
+});
+
+export const metadata: Metadata = {
+  title: "Floslate Todo",
+  description: "Manage your tasks with Floslate Todo",
+  manifest: "/manifest.json",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} ${rivieraUltralight.variable} ${rivieraLight.variable} ${rivieraRegular.variable} ${rivieraMedium.variable} ${rivieraBold.variable} ${rivieraBlack.variable}`}>
+        {/* <AppShell user={sidebarData.user} navMain={sidebarData.navMain}> */}
+          {children}
+        {/* </AppShell> */}
+      </body>
+    </html>
+  );
+}
