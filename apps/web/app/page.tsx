@@ -4,9 +4,9 @@ import { TodoPreviewCard } from "@/components/preview-cards/todo-preview-card"
 import { CalendarPreviewCard } from "@/components/preview-cards/calendar-preview-card"
 
 const user = {
-  name: "Michelle Lamy",
-  email: "michellelamy@example.com",
-  avatar: "/ml.jpg",
+  name: "Stefani Germanotta",
+  email: "stefani@floslate.com",
+  avatar: "https://scontent.fbhx7-1.fna.fbcdn.net/v/t39.30808-6/517592732_1318390362989436_510906406583488429_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=h1xE7SNgviYQ7kNvwEWN3aB&_nc_oc=Adni9y7bYV0SDvFt5khQ-kjmlOwXdL4ZYNsEklx9Hg5t2rsx1KiTq7AlYIuAL93ZKx7-FRG3YqXACnDaMqsrk82g&_nc_zt=23&_nc_ht=scontent.fbhx7-1.fna&_nc_gid=RsRKp-yNC2b8upLKo9XXBg&oh=00_AfjCWbHknZaCLzimlB56tW9rnRDIpJtkDNqb_kBqEQERfA&oe=692AA285",
 }
 
 export default function Home() {

@@ -35,7 +35,7 @@ export function AppShell({ children, user, navMain, sidebar, collapsible = "offc
           <SidebarInset className="flex flex-col flex-1 overflow-hidden bg-sidebar p-2">
             {backgroundAnimated ? (
               <EtheralShadow
-                color="rgba(44, 44, 44, 0.8)"
+                color="var(--primary)"
                 staticFilter={true}
                 // animation={{ scale: 1000, speed: 0 }}
                 noise={{ opacity: 0.3, scale: 0.5 }}

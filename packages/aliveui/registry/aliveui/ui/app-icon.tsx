@@ -14,7 +14,7 @@ interface AppIconProps {
   className?: string
 }
 
-export function AppIcon({ icon, label, active, color = "bg-gray-400", size = "lg", className }: AppIconProps) {
+export function AppIcon({ icon, label, active, color = "bg-secondary text-secondary-foreground", size = "lg", className }: AppIconProps) {
   const iconSize = size === "lg" ? "w-20 h-20" : "w-10 h-10"
   const iconInnerSize = size === "lg" ? "w-10 h-10" : "w-5 h-5"
 
@@ -28,12 +28,12 @@ export function AppIcon({ icon, label, active, color = "bg-gray-400", size = "lg
     >
       <div
         className={cn(
-          "flex items-center justify-center rounded-[2px] overflow-none text-white shadow-sm transition-transform hover:scale-105 active:scale-95",
+          "flex items-center justify-center rounded-[22px] overflow-none text-white shadow-sm transition-transform hover:scale-105 active:scale-95",
           iconSize,
           color
         )}
       >
-        <Icon icon={icon} weight="light" className={iconInnerSize} />
+        <Icon icon={icon} className={iconInnerSize} />
       </div>
       <span className="text-[10px] font-medium text-muted-foreground">{label}</span>
     </div>
