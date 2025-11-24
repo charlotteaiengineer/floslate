@@ -46,8 +46,23 @@ export function EventDialog({
     }
   }, [event, selectedSlot, isOpen])
 
+  const [error, setError] = useState("")
+
   const handleSave = () => {
-    if (!title || !start || !end) return
+    setError("")
+    if (!title) {
+      setError("Title is required")
+      return
+    }
+    if (!start || !end) {
+      setError("Start and end times are required")
+      return
+    }
+
+    if (new Date(start) >= new Date(end)) {
+      setError("End time must be after start time")
+      return
+    }
 
     const newEvent: CalendarEvent = {
       id: event?.id || Math.random().toString(36).substr(2, 9),
@@ -70,6 +85,7 @@ export function EventDialog({
           <DialogDescription>
             {event ? "Make changes to your event here." : "Add a new event to your calendar."}
           </DialogDescription>
+          {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">

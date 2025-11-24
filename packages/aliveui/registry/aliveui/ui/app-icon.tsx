@@ -28,14 +28,12 @@ export function AppIcon({ icon, label, active, color = "bg-gray-400", size = "lg
     >
       <div
         className={cn(
-          "flex items-center justify-center rounded-[1px] text-white shadow-sm transition-transform hover:scale-105 active:scale-95",
+          "flex items-center justify-center rounded-[2px] overflow-none text-white shadow-sm transition-transform hover:scale-105 active:scale-95",
           iconSize,
           color
         )}
       >
-        <EtheralShadow className="flex items-center justify-center">
-          <Icon icon={icon} weight="light" className={iconInnerSize} />
-        </EtheralShadow>
+        <Icon icon={icon} weight="light" className={iconInnerSize} />
       </div>
       <span className="text-[10px] font-medium text-muted-foreground">{label}</span>
     </div>
