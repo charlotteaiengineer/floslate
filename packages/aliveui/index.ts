@@ -36,6 +36,11 @@ export * from "./lib/utils";
 export * from "./hooks/use-mobile";
 export * from "./registry/aliveui/ui/icon";
 export * from "./registry/aliveui/ui/clock";
+export * from "./registry/aliveui/ui/select";
+export * from "./registry/aliveui/ui/textarea";
+export * from "./registry/aliveui/ui/carousel";
+export * from "./registry/aliveui/ui/scroll-area";
 
+export * from "./registry/aliveui/ui/collapsible";
 export * from "./registry/aliveui/styles/backgrounds/etherial-shadow";
 export * from "./registry/aliveui/blocks/dashboard/components/app-launcher";
