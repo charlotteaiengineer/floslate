@@ -3,9 +3,10 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
-import { PanelLeftIcon } from "lucide-react"
+import { PanelLeftIcon, PanelRightIcon } from "lucide-react"
 
 const PanelLeftIconAny = PanelLeftIcon as any
+const PanelRightIconAny = PanelRightIcon as any
 
 import { cn } from "@aliveui/ui"
 import { Button } from "@aliveui/ui"
@@ -42,6 +43,11 @@ type SidebarContextProps = {
   setOpenMobile: (open: boolean) => void
   isMobile: boolean
   toggleSidebar: () => void
+  // Right Sidebar
+  stateRight: "expanded" | "collapsed"
+  openRight: boolean
+  setOpenRight: (open: boolean) => void
+  toggleSidebarRight: () => void
 }
 
 const SidebarContext = React.createContext<SidebarContextProps | null>(null)
@@ -112,9 +118,25 @@ function SidebarProvider({
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [toggleSidebar])
 
+  // Right Sidebar State
+  const [_openRight, _setOpenRight] = React.useState(true)
+  const openRight = _openRight
+  const setOpenRight = React.useCallback(
+    (value: boolean | ((value: boolean) => boolean)) => {
+      const openState = typeof value === "function" ? value(openRight) : value
+      _setOpenRight(openState)
+    },
+    [openRight]
+  )
+
+  const toggleSidebarRight = React.useCallback(() => {
+    return setOpenRight((open) => !open)
+  }, [setOpenRight])
+
   // We add a state so that we can do data-state="expanded" or "collapsed".
   // This makes it easier to style the sidebar with Tailwind classes.
   const state = open ? "expanded" : "collapsed"
+  const stateRight = openRight ? "expanded" : "collapsed"
 
   const contextValue = React.useMemo<SidebarContextProps>(
     () => ({
@@ -125,8 +147,12 @@ function SidebarProvider({
       openMobile,
       setOpenMobile,
       toggleSidebar,
+      stateRight,
+      openRight,
+      setOpenRight,
+      toggleSidebarRight,
     }),
-    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]
+    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar, stateRight, openRight, setOpenRight, toggleSidebarRight]
   )
 
   return (
@@ -166,7 +192,8 @@ function Sidebar({
   variant?: "sidebar" | "floating" | "inset"
   collapsible?: "offcanvas" | "icon" | "none"
 }) {
-  const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
+  const { isMobile, state, openMobile, setOpenMobile, stateRight } = useSidebar()
+  const currentState = side === "right" ? stateRight : state
 
   if (collapsible === "none") {
     return (
@@ -211,8 +238,8 @@ function Sidebar({
   return (
     <div
       className="group peer text-sidebar-foreground hidden md:block"
-      data-state={state}
-      data-collapsible={state === "collapsed" ? collapsible : ""}
+      data-state={currentState}
+      data-collapsible={currentState === "collapsed" ? collapsible : ""}
       data-variant={variant}
       data-side={side}
       data-slot="sidebar"
@@ -259,9 +286,10 @@ function Sidebar({
 function SidebarTrigger({
   className,
   onClick,
+  side = "left",
   ...props
-}: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar } = useSidebar()
+}: React.ComponentProps<typeof Button> & { side?: "left" | "right" }) {
+  const { toggleSidebar, toggleSidebarRight } = useSidebar()
 
   return (
     <Button
@@ -272,11 +300,15 @@ function SidebarTrigger({
       className={cn("size-7", className)}
       onClick={(event) => {
         onClick?.(event)
-        toggleSidebar()
+        if (side === "right") {
+          toggleSidebarRight()
+        } else {
+          toggleSidebar()
+        }
       }}
       {...props}
     >
-      <PanelLeftIconAny />
+      {side === "right" ? <PanelRightIconAny /> : <PanelLeftIconAny />}
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )
@@ -572,7 +604,7 @@ function SidebarMenuAction({
         "peer-data-[size=lg]/menu-button:top-2.5",
         "group-data-[collapsible=icon]:hidden",
         showOnHover &&
-          "peer-data-[active=true]/menu-button:text-sidebar-accent-foreground group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 md:opacity-0",
+        "peer-data-[active=true]/menu-button:text-sidebar-accent-foreground group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 md:opacity-0",
         className
       )}
       {...props}

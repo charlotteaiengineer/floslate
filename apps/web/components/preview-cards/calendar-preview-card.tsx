@@ -62,7 +62,7 @@ export function CalendarPreviewCard() {
           </a>
         </Button>
       }
-      className="col-span-1 md:col-span-2"
+      className="col-span-1 md:col-span-1"
     >
       <div className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-1">
