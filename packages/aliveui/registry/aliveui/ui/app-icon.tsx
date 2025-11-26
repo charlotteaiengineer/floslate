@@ -28,7 +28,7 @@ export function AppIcon({ icon, label, active, color = "bg-secondary text-second
     >
       <div
         className={cn(
-          "flex items-center justify-center rounded-[22px] overflow-none text-white shadow-sm transition-transform hover:scale-105 active:scale-95",
+          "flex items-center justify-center p-3 rounded-[3px] overflow-none text-white shadow-sm transition-transform hover:scale-105 active:scale-95",
           iconSize,
           color
         )}

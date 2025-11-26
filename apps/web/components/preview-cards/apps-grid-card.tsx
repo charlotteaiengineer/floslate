@@ -66,7 +66,7 @@ export function AppsGridCard() {
             <AppIcon
               icon={app.icon}
               label={app.name}
-              // color={app.color}
+              color={app.color}
               size="lg"
             />
           </a>

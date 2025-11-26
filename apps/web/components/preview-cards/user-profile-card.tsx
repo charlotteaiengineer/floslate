@@ -29,7 +29,7 @@ export function UserProfileCard({ user }: UserProfileCardProps) {
         <div className="text-center flex flex-col text-left">
           <Text size="4xl" variant="ultralight">{user.name}</Text>
           <Text size="sm" variant="light" className="text-muted-foreground">{user.email}</Text>
-          <Text size="xs" variant="light" className="text-muted-foreground mt-1">Designer</Text>
+          <Text size="xs" variant="light" className="text-muted-foreground mt-1">Artist</Text>
         </div>
       </div>
     </BentoCard>

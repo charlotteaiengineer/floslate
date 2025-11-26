@@ -1,38 +1,54 @@
 "use client"
 
 import * as React from "react"
-import { CheckSquare, Power, Phone, Tray, CalendarBlank, MagnifyingGlass, Funnel, Tag, User, Plus, type Icon as PhosphorIcon, type IconProps as PhosphorIconProps, SquaresFourIcon, DotsNineIcon, ChefHatIcon, CookingPot, CookingPotIcon, Question, ChatCenteredIcon, ChatCircleIcon, BarbellIcon, CoffeeIcon, BookIcon } from "@phosphor-icons/react"
+import {
+  CheckCircleIcon,
+  PoweroffIcon,
+  CallIcon,
+  MailIcon,
+  CalendarIcon,
+  SearchIcon,
+  FilterIcon,
+  DiscountIcon,
+  UserCircleIcon,
+  AddIcon,
+  ViewModuleIcon,
+  TeaIcon,
+  HelpCircleIcon,
+  ChatIcon,
+  HeartIcon,
+  BookIcon
+} from "tdesign-icons-react"
 import { cn } from "@aliveui/ui"
 
 const icons = {
-  power: Power,
-  todo: CheckSquare,
-  phone: Phone,
-  inbox: Tray,
-  calendar: CalendarBlank,
-  search: MagnifyingGlass,
-  filter: Funnel,
-  tag: Tag,
-  user: User,
-  plus: Plus,
-  apps: DotsNineIcon,
-  chef: CookingPotIcon,
-  quiz: Question,
-  chat: ChatCircleIcon,
-  weight: BarbellIcon,
+  power: PoweroffIcon,
+  todo: CheckCircleIcon,
+  phone: CallIcon,
+  inbox: MailIcon,
+  calendar: CalendarIcon,
+  search: SearchIcon,
+  filter: FilterIcon,
+  tag: DiscountIcon,
+  user: UserCircleIcon,
+  plus: AddIcon,
+  apps: ViewModuleIcon,
+  chef: TeaIcon,
+  quiz: HelpCircleIcon,
+  chat: ChatIcon,
+  weight: HeartIcon,
   journal: BookIcon,
-  tea: CoffeeIcon,
+  tea: TeaIcon,
 }
 
 export type IconName = keyof typeof icons
 
-interface IconProps extends PhosphorIconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
   icon: IconName
   className?: string
-  weight?: "light" | "regular" | "bold" | "fill"
 }
 
-export function Icon({ icon, weight = "light", className, ...props }: IconProps) {
+export function Icon({ icon, className, ...props }: IconProps) {
   const IconComponent = icons[icon] as React.ElementType
 
   if (!IconComponent) {
@@ -41,8 +57,11 @@ export function Icon({ icon, weight = "light", className, ...props }: IconProps)
 
   return (
     <IconComponent
-      weight={weight}
-      className={cn("h-5 w-5", className)}
+
+      strokeWidth={1.2}
+      fillColor={["#ffffff41", "#ffffff"]}
+      // strokeColor={["#ffffff", "#ffffff"]}
+      className={cn(className, "w-full h-full")}
       {...props}
     />
   )

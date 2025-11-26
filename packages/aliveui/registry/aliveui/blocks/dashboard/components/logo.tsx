@@ -40,7 +40,7 @@ export function FloslateLogo({
   if (variant === "icon-only") {
     return (
       <div className={cn("flex items-center justify-center", className)}>
-        <Icon icon="power"  className={cn(sizes.icon, "text-foreground")} />
+        <Icon icon="power" className={cn(sizes.icon, "text-foreground")} />
       </div>
     )
   }
@@ -52,7 +52,7 @@ export function FloslateLogo({
           FL
         </Text>
         <div className="inline-flex items-center justify-center">
-          <Icon icon="power" className={cn(sizes.icon, "text-foreground")} />
+          <Icon icon="power" className={cn(sizes.icon, "!w-12 !h-12 text-foreground")} />
         </div>
         <Text variant={textVariant} className={sizes.text}>
           SLATE
@@ -68,7 +68,7 @@ export function FloslateLogo({
         FL
       </Text>
       <div className="inline-flex items-center -ml-[0.3rem] -mr-[0.2rem] justify-center">
-        <Icon icon="power" className={cn("h-6 w-6", "text-foreground")} />
+        <Icon icon="power" className={cn("!h-6 !w-6", "text-foreground")} />
       </div>
       <Text variant="light" className={sizes.text}>
         SLATE
