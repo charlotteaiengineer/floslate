@@ -20,7 +20,7 @@ export function UserProfileCard({ user }: UserProfileCardProps) {
   return (
     <BentoCard className="col-span-1">
       <div className="flex flex-col items-start gap-4 py-4">
-        <div className=" shadow-inset shadow-[inset_0px_4px_18px_10px_rgba(0,_0,_0,_0.2)]   border-4 rounded-full p-1">
+        <div className=" grayscale shadow-inset shadow-[inset_0px_4px_18px_10px_var(--muted)]   border-0 rounded-[3px] p-1">
           <Avatar className="h-40 w-40">
             <AvatarImage src={user.avatar} alt={user.name} />
             <AvatarFallback>{initials}</AvatarFallback>

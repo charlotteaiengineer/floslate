@@ -38,3 +38,4 @@ export * from "./registry/aliveui/ui/icon";
 export * from "./registry/aliveui/ui/clock";
 
 export * from "./registry/aliveui/styles/backgrounds/etherial-shadow";
+export * from "./registry/aliveui/blocks/dashboard/components/app-launcher";

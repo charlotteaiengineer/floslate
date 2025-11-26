@@ -38,11 +38,7 @@ export async function TodoPreviewCard() {
   return (
     <BentoCard
       title="Todo"
-      icon={
-        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-400 text-white">
-          <Icon icon="todo" weight="fill" className="w-5 h-5" />
-        </div>
-      }
+      icon="todo"
       action={
         <Button variant="ghost" size="icon" asChild>
           <a href="http://localhost:3001">

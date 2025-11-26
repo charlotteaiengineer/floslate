@@ -13,11 +13,17 @@ import {
   UserCircleIcon,
   AddIcon,
   ViewModuleIcon,
-  TeaIcon,
   HelpCircleIcon,
   ChatIcon,
   HeartIcon,
-  BookIcon
+  BookIcon,
+  HamburgerIcon,
+  TeaFilledIcon,
+  TeahouseIcon,
+  Task1Icon,
+  TeaIcon,
+  QuestionnaireIcon,
+  SystemSumIcon
 } from "tdesign-icons-react"
 import { cn } from "@aliveui/ui"
 
@@ -33,12 +39,13 @@ const icons = {
   user: UserCircleIcon,
   plus: AddIcon,
   apps: ViewModuleIcon,
-  chef: TeaIcon,
-  quiz: HelpCircleIcon,
+  chef: HamburgerIcon,
+  quiz: QuestionnaireIcon,
   chat: ChatIcon,
-  weight: HeartIcon,
+  weight: SystemSumIcon,
   journal: BookIcon,
   tea: TeaIcon,
+  task: Task1Icon,
 }
 
 export type IconName = keyof typeof icons

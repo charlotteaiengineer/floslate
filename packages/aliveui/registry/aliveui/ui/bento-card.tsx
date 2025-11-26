@@ -1,7 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "@aliveui/ui"
+import { cn, Text } from "@aliveui/ui"
+import { AppIcon } from "./app-icon"
+
 
 interface BentoCardProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
@@ -9,6 +11,7 @@ interface BentoCardProps extends React.HTMLAttributes<HTMLDivElement> {
   action?: React.ReactNode
   children?: React.ReactNode
   className?: string
+  noBackground?: boolean
 }
 
 export function BentoCard({
@@ -17,12 +20,13 @@ export function BentoCard({
   action,
   children,
   className,
+  noBackground,
   ...props
 }: BentoCardProps) {
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-[6px] border bg-card p-6 shadow-sm transition-all hover:shadow-md",
+        "group relative overflow-hidden rounded-[6px] border-muted bg-card p-6 shadow-sm shadow-[var(--muted)] transition-all ",
         className
       )}
       {...props}
@@ -32,12 +36,11 @@ export function BentoCard({
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             {icon && (
-              <div className="flex items-center justify-center">
-                {icon}
-              </div>
+              <AppIcon size="sm" noBackground={true} icon={icon} color="bg-chart-1" />
+
             )}
             {title && (
-              <h3 className="font-semibold text-lg">{title}</h3>
+              <Text >{title}</Text>
             )}
           </div>
           {action && (

@@ -17,21 +17,21 @@ const upcomingEvents: Event[] = [
     title: "Team Sync",
     time: "10:00 AM",
     date: "Today",
-    color: "bg-blue-400",
+    color: "bg-chart-2",
   },
   {
     id: "2",
     title: "Design Review",
     time: "2:00 PM",
     date: "Today",
-    color: "bg-purple-400",
+    color: "bg-chart-1",
   },
   {
     id: "3",
     title: "Project Planning",
     time: "11:00 AM",
     date: "Tomorrow",
-    color: "bg-green-400",
+    color: "bg-chart-3",
   },
 ]
 
@@ -53,11 +53,8 @@ export function CalendarPreviewCard() {
   return (
     <BentoCard
       title="Calendar"
-      icon={
-        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-red-400 text-white">
-          <Icon icon="calendar" weight="fill" className="w-5 h-5" />
-        </div>
-      }
+      icon="calendar"
+      noBackground
       action={
         <Button variant="ghost" size="icon" asChild>
           <a href="http://localhost:3002">
@@ -65,12 +62,14 @@ export function CalendarPreviewCard() {
           </a>
         </Button>
       }
-      className="col-span-1 md:col-span-1"
+      className="col-span-1 md:col-span-2"
     >
-      <div className="flex flex-col gap-1">
-        {upcomingEvents.map((event) => (
-          <EventItem key={event.id} event={event} />
-        ))}
+      <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-1">
+          {upcomingEvents.map((event) => (
+            <EventItem key={event.id} event={event} />
+          ))}
+        </div>
         <Button variant="ghost" size="sm" className="mt-2 justify-start" asChild>
           <a href="http://localhost:3002">
             View schedule
