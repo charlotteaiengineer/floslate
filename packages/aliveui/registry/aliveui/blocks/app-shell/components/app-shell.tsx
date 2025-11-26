@@ -34,17 +34,20 @@ export function AppShell({ children, user, navMain, sidebar, collapsible = "offc
           {sidebar ? sidebar : <AppSidebar navMain={navMain} user={user} collapsible={collapsible} />}
           <SidebarInset className="flex flex-col flex-1 overflow-hidden bg-sidebar p-2">
             {backgroundAnimated ? (
-              <EtheralShadow
-                color="var(--primary)"
-                staticFilter={true}
-                // animation={{ scale: 1000, speed: 0 }}
-                noise={{ opacity: 0.3, scale: 0.5 }}
-                className="rounded-[45px] relative overflow-hidden shadow-inset shadow-[inset_0px_4px_108px_15px_rgba(0,_0,_0,_0.3)]"
-              >
+              // <EtheralShadow
+              //   color="var(--primary)"
+              //   staticFilter={true}
+              //   // animation={{ scale: 1000, speed: 0 }}
+              //   noise={{ opacity: 0.3, scale: 0.5 }}
+              //   className="rounded-[45px] relative overflow-hidden shadow-inset shadow-[inset_0px_4px_108px_15px_rgba(0,_0,_0,_0.3)]"
+              // >
+              <div className="rounded-[45px] bg-background relative overflow-hidden shadow-inset shadow-[inset_0px_4px_58px_15px_rgba(0,_0,_0,_0.2)]">
+
                 <main className="  flex-1 h-full w-full overflow-y-scroll !scrollbar-none  ">
                   {children}
                 </main>
-              </EtheralShadow>
+              </div>
+              // </EtheralShadow>
             ) : (
               <main className="flex-1  border bg-background overflow-y-auto ">
                 {children}
